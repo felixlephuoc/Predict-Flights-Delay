@@ -14,42 +14,42 @@ ___
 
 This notebook is composed of three parts: cleaning (section 1), exploration (section 2) and modeling (section 3).
 
-**Overview of the dataset** <br>
+**Overview of the dataset**(#overview) <br>
 
-**1. CLEANING DATASET** 
-- 1.1 Converting format of date and time
-- 1.2 Handling missing values
+**1. CLEANING DATASET** (#1)
+- 1.1 Converting format of date and time (#1.1)
+- 1.2 Handling missing values (#1.2)
 
-**2. EXPLORATION DATASET** <br>
-   - ***2.1 Relation between delay and airlines***
-      * 2.1.1 Basic statistical description of airlines
-      * 2.1.2 Delays distribution: establishing the ranking of airlines 
-   - ***2.2 Relation between delays and arrival/departure*** <br>
-   - ***2.3 Relation between delay and the origin airport*** <br>
-     * 2.3.1 Geographical area covered by airlines  <br>
-     * 2.3.2 How the origin airport impact delays <br>
-     * 2.3.3 Flights with usual delays ? <br>
-   - ***2.4 Relation between delay and departure time*** <br>
+**2. EXPLORATION DATASET**(#2) <br>
+   - ***2.1 Relation between delay and airlines***(#2.1)
+      * 2.1.1 Basic statistical description of airlines(#2.1.1)
+      * 2.1.2 Delays distribution: establishing the ranking of airlines(#2.1.2) 
+   - ***2.2 Relation between delays and arrival/departure*** <br>(#2.2)
+   - ***2.3 Relation between delay and the origin airport*** <br>(#2.3)
+     * 2.3.1 Geographical area covered by airlines  <br>(#2.3.1)
+     * 2.3.2 How the origin airport impact delays <br>(#2.3.2)
+     * 2.3.3 Flights with usual delays ? <br>(#2.3.3)
+   - ***2.4 Relation between delay and departure time***(#2.4) <br>
 
-**3. MODELLING TO PREDICT FLIGHT DELAY** <br>
-   - ***3.1 Model no.1: one airline, one airport***
-      * 3.1.1 Pitfalls
-      * 3.1.2 Polynomial degree: splitting the dataset
-      * 3.1.3 Model test: prediction of end-January delays
-   - ***3.2 Model no.2: one airline, all airports***
-      * 3.2.1 Linear regression  
-      * 3.2.2 Polynomial regression
-      * 3.2.3 Setting the free parameters
-      * 3.2.4 Model test: prediction of end-January delays
-   - ***3.3 Model no.3: Accounting for destinations***
-       * 3.3.1 Choice of the free parameters
-       * 3.3.2 Model test: prediction of end-January delays 
+**3. MODELLING TO PREDICT FLIGHT DELAY**(#3) <br>
+   - ***3.1 Model no.1: one airline, one airport***(#3.1)
+      * 3.1.1 Pitfalls(#3.1.1)
+      * 3.1.2 Polynomial degree: splitting the dataset(#3.1.2)
+      * 3.1.3 Model test: prediction of end-January delays(#3.1.3)
+   - ***3.2 Model no.2: one airline, all airports***(#3.2)
+      * 3.2.1 Linear regression(#3.2.1)  
+      * 3.2.2 Polynomial regression(#3.2.2)
+      * 3.2.3 Setting the free parameters(#3.2.3)
+      * 3.2.4 Model test: prediction of end-January delays(#3.2.4)
+   - ***3.3 Model no.3: Accounting for destinations***(#3.3)
+       * 3.3.1 Choice of the free parameters(#3.3.1)
+       * 3.3.2 Model test: prediction of end-January delays(#3.3.2) 
    
-**Conclusion**
+**Conclusion**(#conclusion)
 
 
 ___
-## Overview of the dataset
+## Overview of the dataset <a name="overview"></a>
 
 The U.S. Department of Transportation's (DOT) Bureau of Transportation Statistics tracks the on-time performance of domestic flights operated by large air carriers. Summary information on the number of on-time, delayed, canceled, and diverted flights is published in DOT's monthly Air Travel Consumer Report and in this dataset of 2015 flight delays and cancellations. You can download this dataset from Kaggle at this [link](https://www.kaggle.com/usdot/flight-delays).
 
@@ -907,7 +907,7 @@ abbr_companies
 
 
 ___
-### 2.1 Basic statistical description of airlines
+### 2.1 Basic statistical description of airlines <a name="2.1"></a>
 
 As a first step, we consider all the flights from all carriers. Here, the aim is to classify the airlines with respect to their punctuality and for that purpose, we compute a few basic statisticial parameters:
 
@@ -1396,7 +1396,7 @@ plt.xlabel('Mean delay [min] (@departure: blue, @arrival: hatch lines)',
 On this figure, we can see that delays at arrival are generally lower than at departure. This indicates that airlines adjust their flight speed in order to reduce the delays at arrival. In following section, we will just consider the delays at departure but one has to keep in mind that this can differ from arrival delays.
 
 ___
-## 2.3. Relation between delay and the origin airport
+## 2.3. Relation between delay and the origin airport <a name="2.3"></a>
 
 We will now determine if there is a correlation between the delays recorded and the airport of origin. Let's recall that in the dataset, the number of airports considered is: 
 
@@ -1409,7 +1409,7 @@ print("Number of airports: {}".format(len(df['ORIGIN_AIRPORT'].unique())))
 
 
 
-### 2.3.1 Geographical area covered by airlines 
+### 2.3.1 Geographical area covered by airlines <a name="2.3.1"></a>
 
 A quick look at the number of destination airports for each airline:
 
@@ -1516,7 +1516,7 @@ for carrier in ['AA', 'AS', 'HA']:
 
 
 ___
-### 2.3.2 How the origin airport impact delays
+### 2.3.2 How the origin airport impact delays <a name="2.3.2"></a>
 
 In this section, we will have a look at the variations of the delays with respect to the origin airport and for every airline. The first step thus consists in determining the mean delays per airport:
 
@@ -1566,7 +1566,7 @@ This figure allows to draw some conclusions. First, by looking at the data assoc
 
 Finally, we can deduce from these observations that **there is a high variability in average delays, both between the different airports but also between the different airlines. This is important because it implies that in order to accurately model the delays, it will be necessary to adopt a model that is specific to the company and the origin airport**. 
 
-### 2.3 .3 Flights Route with usual delays
+### 2.3.3 Flights Route with usual delays <a name="2.3.3"></a>
 
 In the previous section, it has been seen that there is variability in delays when considering the different airlines and the different airports of origin. We are now going to add a level of granularity by focusing not just on the original airports but on flights: origin $\to$ destination. The objective here is to see if some flights are systematically delayed or if, on the contrary, there are flights that would always be on time.
 
@@ -1796,7 +1796,7 @@ fig1.set_ylim(-15, 210)
 Here, we can see that the average delay tends to increase with the departure time of day: flights leave on time in the morning  and the delay grows almost monotonously up to 30 minutes at the end of the day. In fact, this behavior is quite general and looking at other aiports or companies, we would find similar trends.
 
 ___
-# 3. MODELLING TO PREDICT FLIGHT DELAY 
+# 3. MODELLING TO PREDICT FLIGHT DELAY <a name="3"></a>
 
 The previsous sections dealt with an exploration of the dataset. Here, we start with the modeling of flight delays.
 In this section, our goal is to create a model that uses a window of 3 weeks to predict the delays of the following week.
@@ -1810,12 +1810,12 @@ df = df_train
 ```
 
 ___
-## 3.1 Model no.1: one airline, one airport
+## 3.1 Model no.1: one airline, one airport <a name="3.1"></a>
 
 We first model the delays by considering separately the different airlines and by splitting the data according to the different home airports. This first model can be seen as a *toy-model*  that enables to identify problems that may arise at the  production stage. When treating the whole dataset,  the number of fits will be large. Hence we have to be sure that the automation of the whole process is robust enough to insure the quality of the fits.
 
 
-### 3.1.1 Pitfalls <br>
+### 3.1.1 Pitfalls <a name="3.1.1"></a><br>
 
 
 **a) Unsufficient statistics**
@@ -2006,7 +2006,7 @@ Thus, in the first case, the fit (solid blue curve) leads to a prediction which 
 In conclusion, we see in this example that the way in which we manage the extreme delays will have an important impact on the modeling. Note, however, that the current example corresponds to a *chosen case* where the impact of extreme delays is magnified by the limited number of flights. Presumably, the impact of such delays will be less pronounced in the majority of cases.
 
 ___
-#### 5.1.2 Polynomial degree: splitting the dataset
+### 3.1.2 Polynomial degree: splitting the dataset <a name="3.1.2"></a>
 
 
 In practice, rather than performing a simple linear regression, we can improve the model doing a fit with a polynomial of order $N$. Doing so, it is necessary to define the degree $N$ which is optimal to represent the data. When increasing the polynomial order, it is important ** to prevent over-fitting** and we do this by splitting the dataset in **test and training sets**. A problem that may arise with this procedure is that the model ends by *indirectly* learning the contents of the test set and is thus biased. To avoid this, the data can be re-separated into 3 sets: *train*, *test* and *validation*. An alternative to this technique, which is often more robust, is the so-called cross-validation method. This method consists of performing a first separation of the data in *training* and *test* sets. As always, learning is done on the training set, but to avoid over-learning, it is split into several pieces that are used alternately for training and testing.
@@ -2299,7 +2299,7 @@ score
 
 
 
-### 3.1.3 Model test: prediction of end-January delays
+### 3.1.3 Model test: prediction of end-January delays <a name="3.1.3"></a>
 
 At this stage, the model was driven is tested on the training set which include the data of the first 3 weeks of January. We now look at the comparison of predictions and observations for the fourth week of January:
 
@@ -2350,7 +2350,7 @@ thus giving the difference in minutes between the predicted delay and the actual
 
 
 ___
-## 3.2 Model no.2: One airline, all airports
+## 3.2 Model no.2: One airline, all airports <a name="3.2"></a>
 
 In the previous section, the model only considered one airport. This procedure is potentially inefficient because it is likely that some of the observations can be extrapolated from an airport to another. Thus, it may be advantageous to make a single fit, which would take all the airports into account. In particular, this will allow to predict delays on airports for which the number of data is low with a better accuracy.
 
@@ -2449,7 +2449,7 @@ print(X.shape, Y.shape)
 
 
 ___
-### 3.2.1 Linear regression
+### 3.2.1 Linear regression <a name="3.2.1"></a>
 
 The matrices X and Y thus created can be used to perform a linear regression:
 
@@ -2501,7 +2501,7 @@ plt.show()
 
 
 ___
-#### 5.2.2 Polynomial regression
+### 3.2.2 Polynomial regression <a name="3.2.2"></a>
 
 We will now extend the previous fit by using a polynomial rather than a linear function:
 
@@ -2566,7 +2566,7 @@ plt.show()
 
 
 ___
-### 3.2.3 Setting the free parameters
+### 3.2.3 Setting the hyper-parameters <a name="3.2.3"></a>
 
 Above, the two models were fit and tested on the training set. In practice, as mentioned above, there is a risk of overfitting by proceeding that way and the hyper-parameters of the model will be biased. Hence,  the model will not allow a good generalization. In what follows, we will therefore split the datas in order to train and then test the model. The purpose will be to determine the polynomial degree which allows the best generalization of the predictions:
 
@@ -2721,7 +2721,7 @@ print(score)
     54.1697870498571
 
 
-#### 6.2.4 Testing the model: delays of end-january
+### 3.2.4 Testing the model: delays of end-january <a name="3.2.4"></a>
 
 
 At this stage, model predictions are tested against end-January data. These data are first extracted:
@@ -2790,7 +2790,7 @@ As before, assuming that the delay is independent of the point, this MSE score i
 
 The current MSE score is calculated on all the airports served by **American Airlines**, whereas previously it was calculated on the data of a single airport. The current model is therefore more general. Moreover, considering the previous model, it is likely that predictions will be poor for airports with low statistics.
 ____
-## 6.3 Model no.3: Accounting for destinations
+## 3.3 Model no.3: Accounting for destinations <a name="3.3"></a>
 
 In the previous model, we grouped the flights per departure time. Thus, flights with different destinations were grouped as soon as they leave at the same time. Now we make a model that accounts for both departure and arrival times:
 
@@ -2919,7 +2919,7 @@ Y = Y.reshape(len(Y), 1)
 ```
 
 ___
-#### 6.3.1 Choice of model parameters
+### 3.3.1 Choice of model parameters <a name="3.3.1"></a>
 
 As before, we perform a regression with regularization and we have to define the value to attribute to the parameter $\alpha$. Let's separate the data to train and then test the model to select the best value for $\alpha$:
 
@@ -2986,7 +2986,7 @@ print(score)
     89.55031772741047
 
 
-#### 6.3.2 Test of the model: late January delays
+### 3.3.2 Test of the model: late January delays <a name="3.3.2"></a>
 
 Now we test the quality of the predictions on the data of the last week of January:
 
@@ -3147,7 +3147,7 @@ plt.show()
 ![png](PredictFlightDelays_files/PredictFlightDelays_167_0.png)
 
 
-## Conclusion
+# Conclusion <a name="conclusion"></a>
 
 These notebook was two-fold. The first part dealt with an exploration of the dataset, with the aim of understanding some properties of the delays registered by flights. The second part of the notebook consisted in the elaboration of a model aimed at predicting flight delays. For that purpose, we used polynomial regressions and showed the importance of regularisation techniques. In fact, only ridge regression is used but it is important to keep in mind that other regularisations techniques could be more appropriate ( e.g Lasso or Elastic net). 
 
