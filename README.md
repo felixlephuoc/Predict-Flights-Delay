@@ -98,7 +98,7 @@ tab_info
 ```
 
     Dataframe dimensions: (5819079, 31)
-
+   
 
 
 
@@ -3151,11 +3151,3 @@ plt.show()
 
 These notebook was two-fold. The first part dealt with an exploration of the dataset, with the aim of understanding some properties of the delays registered by flights. The second part of the notebook consisted in the elaboration of a model aimed at predicting flight delays. For that purpose, we used polynomial regressions and showed the importance of regularisation techniques. In fact, only ridge regression is used but it is important to keep in mind that other regularisations techniques could be more appropriate ( e.g Lasso or Elastic net). 
 
-
-
-
-```python
-# import dill
-#dill.dump_session('predict_flight_env.db')
-# dill.reload_session('predict_flight_env.db')
-```
