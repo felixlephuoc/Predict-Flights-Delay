@@ -14,38 +14,38 @@ ___
 
 This notebook is composed of three parts: cleaning (section 1), exploration (section 2) and modeling (section 3).
 
-**Overview of the dataset**(#overview) <br>
+[**Overview of the dataset**](#overview) <br>
 
-**1. CLEANING DATASET** (#1)
-- 1.1 Converting format of date and time (#1.1)
-- 1.2 Handling missing values (#1.2)
+[**1. CLEANING DATASET**](#1)
+- [1.1 Converting format of date and time](#1.1)
+- [1.2 Handling missing values](#1.2)
 
-**2. EXPLORATION DATASET**(#2) <br>
-   - ***2.1 Relation between delay and airlines***(#2.1)
-      * 2.1.1 Basic statistical description of airlines(#2.1.1)
-      * 2.1.2 Delays distribution: establishing the ranking of airlines(#2.1.2) 
-   - ***2.2 Relation between delays and arrival/departure*** <br>(#2.2)
-   - ***2.3 Relation between delay and the origin airport*** <br>(#2.3)
-     * 2.3.1 Geographical area covered by airlines  <br>(#2.3.1)
-     * 2.3.2 How the origin airport impact delays <br>(#2.3.2)
-     * 2.3.3 Flights with usual delays ? <br>(#2.3.3)
-   - ***2.4 Relation between delay and departure time***(#2.4) <br>
+[**2. EXPLORATION DATASET**](#2) <br>
+   - [***2.1 Relation between delay and airlines***](#2.1)
+      * [2.1.1 Basic statistical description of airlines](#2.1.1)
+      * [2.1.2 Delays distribution: establishing the ranking of airlines](#2.1.2) <br>
+   - [***2.2 Relation between delays and arrival/departure***](#2.2) <br>
+   - [***2.3 Relation between delay and the origin airport***](#2.3)
+     * [2.3.1 Geographical area covered by airlines](#2.3.1)
+     * [2.3.2 How the origin airport impact delays](#2.3.2)
+     * [2.3.3 Flights with usual delays ?](#2.3.3)
+   - [***2.4 Relation between delay and departure time***](#2.4) <br>
 
-**3. MODELLING TO PREDICT FLIGHT DELAY**(#3) <br>
-   - ***3.1 Model no.1: one airline, one airport***(#3.1)
-      * 3.1.1 Pitfalls(#3.1.1)
-      * 3.1.2 Polynomial degree: splitting the dataset(#3.1.2)
-      * 3.1.3 Model test: prediction of end-January delays(#3.1.3)
-   - ***3.2 Model no.2: one airline, all airports***(#3.2)
-      * 3.2.1 Linear regression(#3.2.1)  
-      * 3.2.2 Polynomial regression(#3.2.2)
-      * 3.2.3 Setting the free parameters(#3.2.3)
-      * 3.2.4 Model test: prediction of end-January delays(#3.2.4)
-   - ***3.3 Model no.3: Accounting for destinations***(#3.3)
-       * 3.3.1 Choice of the free parameters(#3.3.1)
-       * 3.3.2 Model test: prediction of end-January delays(#3.3.2) 
+[**3. MODELLING TO PREDICT FLIGHT DELAY**](#3) <br>
+   - [***3.1 Model no.1: one airline, one airport***](#3.1)
+      * [3.1.1 Pitfalls](#3.1.1)
+      * [3.1.2 Polynomial degree: splitting the dataset](#3.1.2)
+      * [3.1.3 Model test: prediction of end-January delays](#3.1.3)
+   - [***3.2 Model no.2: one airline, all airports***](#3.2)
+      * [3.2.1 Linear regression](#3.2.1)  
+      * [3.2.2 Polynomial regression](#3.2.2)
+      * [3.2.3 Setting the free parameters](#3.2.3)
+      * [3.2.4 Model test: prediction of end-January delays](#3.2.4)
+   - [***3.3 Model no.3: Accounting for destinations***](#3.3)
+       * [3.3.1 Choice of the free parameters](#3.3.1)
+       * [3.3.2 Model test: prediction of end-January delays](#3.3.2) 
    
-**Conclusion**(#conclusion)
+[**Conclusion**](#conclusion)
 
 
 ___
